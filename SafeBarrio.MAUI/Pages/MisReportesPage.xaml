@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.MisReportesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F5F7FA" Offset="0.0"/>
+                    <GradientStop Color="#FFFFFF" Offset="0.45"/>
+                    <GradientStop Color="#1F2F2F" Offset="1.0"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Image Source="logo_safebarrio.png"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Mis Reportes"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="#1D3148"
+                   HorizontalTextAlignment="Center"/>
+
+            <CollectionView x:Name="ReportesCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="#F0FFFFFF"
+                                StrokeThickness="0"
+                                Padding="16"
+                                Margin="0,8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="22"/>
+                            </Border.StrokeShape>
+
+                            <VerticalStackLayout Spacing="8">
+
+                                <Image Source="{Binding imagenRuta}"
+                                       HeightRequest="140"
+                                       Aspect="AspectFill"
+                                       IsVisible="True"/>
+
+                                <Label Text="{Binding tipoIncidente}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#1D3148"/>
+
+                                <Label Text="{Binding descripcion}"
+                                       TextColor="Black"/>
+
+                                <Label Text="{Binding direccionReferencia}"
+                                       TextColor="#333333"/>
+
+                                <Label Text="{Binding estado}"
+                                       TextColor="#82A914"
+                                       FontAttributes="Bold"/>
+
+                                <Label Text="{Binding fechaReporte}"
+                                       TextColor="#666666"
+                                       FontSize="13"/>
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Button Text="Editar"
+                                            BackgroundColor="#D3B52C"
+                                            TextColor="Black"
+                                            CommandParameter="{Binding id}"
+                                            Clicked="OnEditarClicked"/>
+
+                                    <Button Text="Eliminar"
+                                            BackgroundColor="#E64B5D"
+                                            TextColor="White"
+                                            CommandParameter="{Binding id}"
+                                            Clicked="OnEliminarClicked"/>
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Volver"
+                    BackgroundColor="#82A914"
+                    TextColor="White"
+                    CornerRadius="24"
+                    Clicked="OnVolverClicked"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.SoportePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F5F7FA" Offset="0.0"/>
+                    <GradientStop Color="#FFFFFF" Offset="0.45"/>
+                    <GradientStop Color="#1F2F2F" Offset="1.0"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="25" Spacing="15">
+
+                <Image Source="logo_safebarrio.png"
+                       HeightRequest="130"
+                       HorizontalOptions="Center"/>
+
+                <Border BackgroundColor="#F0FFFFFF" StrokeThickness="0" Padding="22">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <Label Text="Centro de Soporte"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"
+                               HorizontalTextAlignment="Center"/>
+
+                        <Label Text="¿Qué es SafeBarrio?"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"/>
+                        <Label Text="Es una app de seguridad comunitaria para reportar incidentes, enviar alertas SOS y revisar zonas de riesgo."
+                               TextColor="Black"/>
+
+                        <Label Text="¿Cómo reportar un incidente?"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"/>
+                        <Label Text="Ingresa a Reportar Incidente, selecciona el tipo de problema, agrega una descripción, ubicación y evidencia."
+                               TextColor="Black"/>
+
+                        <Label Text="¿Qué hago en emergencia?"
+                               FontAttributes="Bold"
+                               TextColor="#E64B5D"/>
+                        <Label Text="Usa el botón SOS y, si estás en peligro real, llama directamente al 911."
+                               TextColor="Black"/>
+
+                        <Label Text="Contacto de soporte"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"/>
+                        <Label Text="soporte@safebarrio.com&#10;Lunes a viernes, 08h00 - 18h00"
+                               TextColor="Black"/>
+
+                        <Button Text="Volver"
+                                BackgroundColor="#82A914"
+                                TextColor="White"
+                                CornerRadius="24"
+                                Clicked="OnVolverClicked"/>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

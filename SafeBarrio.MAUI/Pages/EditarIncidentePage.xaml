@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.EditarIncidentePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="15">
+
+            <Image Source="logo_safebarrio.png"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"/>
+
+            <Border BackgroundColor="#F0FFFFFF" StrokeThickness="0" Padding="22">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label Text="Editar Reporte"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           TextColor="#1D3148"
+                           HorizontalTextAlignment="Center"/>
+
+                    <Picker x:Name="TipoPicker" Title="Tipo de incidente">
+                        <Picker.Items>
+                            <x:String>Robo</x:String>
+                            <x:String>Asalto</x:String>
+                            <x:String>Violencia</x:String>
+                            <x:String>Accidente</x:String>
+                            <x:String>Emergencia médica</x:String>
+                            <x:String>Incendio</x:String>
+                            <x:String>Otro</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Editor x:Name="DescripcionEditor"
+                            Placeholder="Descripción"
+                            HeightRequest="100"
+                            TextColor="Black"
+                            BackgroundColor="White"/>
+
+                    <Entry x:Name="DireccionEntry"
+                           Placeholder="Dirección o referencia"
+                           TextColor="Black"
+                           BackgroundColor="White"/>
+
+                    <Label x:Name="UbicacionLabel"
+                           Text="Ubicación"
+                           TextColor="#1D3148"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+
+                    <Button Text="Seleccionar nueva foto"
+                            BackgroundColor="#4A78AE"
+                            TextColor="White"
+                            CornerRadius="24"
+                            Clicked="OnSeleccionarFotoClicked"/>
+
+                    <Image x:Name="VistaFoto"
+                           HeightRequest="160"
+                           Aspect="AspectFill"
+                           IsVisible="False"/>
+
+                    <Button Text="Guardar Cambios"
+                            BackgroundColor="#82A914"
+                            TextColor="White"
+                            CornerRadius="24"
+                            Clicked="OnGuardarClicked"/>
+
+                    <Button Text="Volver"
+                            BackgroundColor="#1D3148"
+                            TextColor="White"
+                            CornerRadius="24"
+                            Clicked="OnVolverClicked"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

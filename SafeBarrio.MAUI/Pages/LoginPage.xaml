@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="SafeBarrio"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F5F7FA" Offset="0.0" />
+                    <GradientStop Color="#FFFFFF" Offset="0.45" />
+                    <GradientStop Color="#1F2F2F" Offset="1.0" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="28" Spacing="22" VerticalOptions="Center">
+
+                <Border BackgroundColor="#F0FFFFFF"
+                        StrokeThickness="0"
+                        Padding="25"
+                        MaximumWidthRequest="520"
+                        HorizontalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="28" />
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="18">
+
+                        <Image Source="logo_safebarrio.png"
+                               HeightRequest="150"
+                               Aspect="AspectFit"
+                               HorizontalOptions="Center" />
+
+                        <Label Text="Iniciar Sesión"
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"
+                               HorizontalOptions="Center" />
+
+                        <Label Text="Accede a tu cuenta para reportar incidentes, usar SOS y consultar zonas de riesgo."
+                               FontSize="14"
+                               TextColor="#333333"
+                               HorizontalTextAlignment="Center" />
+
+                        <Entry x:Name="CorreoEntry"
+                               Placeholder="Correo electrónico"
+                               Keyboard="Email"
+                               BackgroundColor="White"
+                               TextColor="Black"
+                               PlaceholderColor="#777777" />
+
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Contraseña"
+                               IsPassword="True"
+                               BackgroundColor="White"
+                               TextColor="Black"
+                               PlaceholderColor="#777777" />
+
+                        <Button Text="Iniciar Sesión"
+                                BackgroundColor="#82A914"
+                                TextColor="White"
+                                CornerRadius="24"
+                                HeightRequest="50"
+                                FontAttributes="Bold"
+                                Clicked="OnLoginClicked" />
+
+                        <Button Text="Crear cuenta"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="24"
+                                HeightRequest="50"
+                                Clicked="OnRegistroClicked" />
+
+                        <Button Text="Soporte"
+                                BackgroundColor="#4A78AE"
+                                TextColor="White"
+                                CornerRadius="24"
+                                HeightRequest="50"
+                                Clicked="OnSoporteClicked" />
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.DashboardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F5F7FA" Offset="0.0"/>
+                    <GradientStop Color="#FFFFFF" Offset="0.45"/>
+                    <GradientStop Color="#1F2F2F" Offset="1.0"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="18" Spacing="15">
+
+                <ScrollView Orientation="Horizontal">
+                    <HorizontalStackLayout Spacing="10">
+                        <HorizontalStackLayout x:Name="AdminTabsLayout"
+                       Spacing="10"
+                       IsVisible="False">
+
+                            <Button Text="Admin"
+            BackgroundColor="#82A914"
+            TextColor="White"
+            CornerRadius="20"
+            Clicked="OnAdminClicked"/>
+
+                            <Button Text="Usuarios"
+            BackgroundColor="#1D3148"
+            TextColor="White"
+            CornerRadius="20"
+            Clicked="OnUsuariosAdminClicked"/>
+
+                            <Button Text="Incidentes"
+            BackgroundColor="#D3B52C"
+            TextColor="Black"
+            CornerRadius="20"
+            Clicked="OnIncidentesAdminClicked"/>
+
+                            <Button Text="Alertas SOS"
+            BackgroundColor="#E64B5D"
+            TextColor="White"
+            CornerRadius="20"
+            Clicked="OnAlertasSOSAdminClicked"/>
+
+                        </HorizontalStackLayout>
+                        <Button Text="Inicio"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="20"/>
+
+                        <Button Text="Mis Reportes"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="20"
+                                Clicked="OnMisReportesClicked"/>
+
+                        <Button Text="Notificaciones"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="20"
+                                Clicked="OnNotificacionesClicked"/>
+
+                        <Button Text="Perfil"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="20"
+                                Clicked="OnPerfilClicked"/>
+                        <Button Text="Salir"
+                                BackgroundColor="#E64B5D"
+                                TextColor="White"
+                                CornerRadius="20"
+                                Clicked="OnSalirClicked"/>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <Image Source="logo_safebarrio.png"
+                       HeightRequest="95"
+                       HorizontalOptions="Center"/>
+
+                <Label x:Name="BienvenidaLabel"
+                       FontSize="23"
+                       FontAttributes="Bold"
+                       TextColor="#1D3148"
+                       HorizontalTextAlignment="Center"/>
+
+                <Border BackgroundColor="#F0FFFFFF" StrokeThickness="0" Padding="16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="14">
+                        <Label Text="Sistema de Seguridad Comunitaria"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"/>
+
+                        <WebView x:Name="MapaWebView"
+                                 HeightRequest="300"/>
+
+                        <Button Text="🚨 Emergencia SOS"
+                                BackgroundColor="#E64B5D"
+                                TextColor="White"
+                                CornerRadius="25"
+                                HeightRequest="52"
+                                Clicked="OnSOSClicked"/>
+
+                        <Button Text="🟡 Reportar Incidente"
+                                BackgroundColor="#D3B52C"
+                                TextColor="Black"
+                                CornerRadius="25"
+                                HeightRequest="52"
+                                Clicked="OnReportarIncidenteClicked"/>
+
+                        <Button Text="🤖 Asistencia Rápida"
+                                BackgroundColor="#4A78AE"
+                                TextColor="White"
+                                CornerRadius="25"
+                                HeightRequest="52"
+                                Clicked="OnAsistenciaClicked"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="#F0FFFFFF" StrokeThickness="0" Padding="16">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Alertas Recientes"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"/>
+
+                        <CollectionView x:Name="AlertasCollection">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BackgroundColor="#FFE5E5"
+                                            StrokeThickness="0"
+                                            Padding="12"
+                                            Margin="0,5">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="16"/>
+                                        </Border.StrokeShape>
+
+                                        <VerticalStackLayout>
+                                            <Label Text="🚨 SOS ACTIVO"
+                                                   FontAttributes="Bold"
+                                                   TextColor="#B00020"/>
+                                            <Label Text="{Binding mensaje}"
+                                                   TextColor="Black"/>
+                                            <Label Text="{Binding fechaAlerta}"
+                                                   TextColor="#555555"
+                                                   FontSize="12"/>
+                                        </VerticalStackLayout>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <Label Text="🔴 Zona de atención: Quitumbe" TextColor="Black"/>
+                        <Label Text="🟠 Zona de cuidado: Solanda" TextColor="Black"/>
+                        <Label Text="🟡 Reportes recientes en Villaflora" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

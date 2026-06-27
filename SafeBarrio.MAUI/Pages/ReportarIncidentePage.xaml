@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.ReportarIncidentePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F5F7FA" Offset="0.0"/>
+                    <GradientStop Color="#FFFFFF" Offset="0.45"/>
+                    <GradientStop Color="#1F2F2F" Offset="1.0"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="25" Spacing="15">
+
+                <Image Source="logo_safebarrio.png"
+                       HeightRequest="110"
+                       HorizontalOptions="Center"/>
+
+                <Border BackgroundColor="#F0FFFFFF" StrokeThickness="0" Padding="22">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="14">
+
+                        <Label Text="Reportar Incidente"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="#1D3148"
+                               HorizontalTextAlignment="Center"/>
+
+                        <Picker x:Name="TipoPicker"
+                                Title="Tipo de incidente"
+                                TextColor="Black">
+                            <Picker.Items>
+                                <x:String>Robo</x:String>
+                                <x:String>Asalto</x:String>
+                                <x:String>Violencia</x:String>
+                                <x:String>Accidente</x:String>
+                                <x:String>Emergencia médica</x:String>
+                                <x:String>Incendio</x:String>
+                                <x:String>Otro</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Editor x:Name="DescripcionEditor"
+                                Placeholder="Describe qué ocurrió..."
+                                HeightRequest="100"
+                                TextColor="Black"
+                                BackgroundColor="White"/>
+
+                        <Entry x:Name="DireccionEntry"
+                               Placeholder="Ejemplo: San Roque, Villaflora, Solanda"
+                               TextColor="Black"
+                               BackgroundColor="White"/>
+
+                        <Button Text="Buscar dirección"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="24"
+                                Clicked="OnBuscarDireccionClicked"/>
+
+                        <WebView x:Name="MapaWebView"
+                                 HeightRequest="320"
+                                 Navigating="MapaWebView_Navigating"/>
+
+                        <Label x:Name="UbicacionLabel"
+                               Text="Ubicación: no seleccionada"
+                               TextColor="#1D3148"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
+
+                        <Button Text="Usar mi ubicación actual"
+                                BackgroundColor="#1D3148"
+                                TextColor="White"
+                                CornerRadius="24"
+                                Clicked="OnUbicacionClicked"/>
+
+                        <Button x:Name="FotoButton"
+                                Text="Adjuntar foto de evidencia"
+                                BackgroundColor="#4A78AE"
+                                TextColor="White"
+                                CornerRadius="24"
+                                Clicked="OnSeleccionarFotoClicked"/>
+
+                        <Image x:Name="VistaFoto"
+                               HeightRequest="160"
+                               IsVisible="False"
+                               Aspect="AspectFill"/>
+
+                        <Button Text="Publicar Reporte"
+                                BackgroundColor="#D3B52C"
+                                TextColor="Black"
+                                CornerRadius="24"
+                                HeightRequest="52"
+                                Clicked="OnPublicarClicked"/>
+
+                        <Button Text="Volver"
+                                BackgroundColor="#82A914"
+                                TextColor="White"
+                                CornerRadius="24"
+                                Clicked="OnVolverClicked"/>
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SafeBarrio.MAUI.Pages.AdminDashboardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#1F2F2F">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="15">
+
+            <Image Source="logo_safebarrio.png"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Panel Administrador SafeBarrio"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="#1D3148"
+                   HorizontalTextAlignment="Center"/>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+
+                <Border BackgroundColor="#CFE2FF" Padding="15" Grid.Row="0" Grid.Column="0">
+                    <VerticalStackLayout>
+                        <Label x:Name="UsuariosLabel" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Text="Usuarios" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="#FFF3CD" Padding="15" Grid.Row="0" Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label x:Name="IncidentesLabel" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Text="Incidentes" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="#F8D7DA" Padding="15" Grid.Row="1" Grid.Column="0">
+                    <VerticalStackLayout>
+                        <Label x:Name="SOSActivosLabel" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Text="SOS Activos" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="#D1E7DD" Padding="15" Grid.Row="1" Grid.Column="1">
+                    <VerticalStackLayout>
+                        <Label x:Name="SOSResueltosLabel" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Text="SOS Resueltos" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <Button Text="Gestionar Usuarios"
+                    BackgroundColor="#82A914"
+                    TextColor="White"
+                    CornerRadius="24"
+                    Clicked="OnUsuariosClicked"/>
+
+            <Button Text="Ver Incidentes"
+                    BackgroundColor="#D3B52C"
+                    TextColor="Black"
+                    CornerRadius="24"
+                    Clicked="OnIncidentesClicked"/>
+
+            <Button Text="Ver Alertas SOS"
+                    BackgroundColor="#E64B5D"
+                    TextColor="White"
+                    CornerRadius="24"
+                    Clicked="OnAlertasClicked"/>
+
+            <Button Text="Volver"
+                    BackgroundColor="#1D3148"
+                    TextColor="White"
+                    CornerRadius="24"
+                    Clicked="OnVolverClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
